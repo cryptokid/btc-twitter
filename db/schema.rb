@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131124011555) do
+ActiveRecord::Schema.define(version: 20131124032809) do
 
   create_table "hashtags", force: true do |t|
     t.string   "name"
@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 20131124011555) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "sentiment"
+    t.datetime "tweeted_at"
   end
 
 end

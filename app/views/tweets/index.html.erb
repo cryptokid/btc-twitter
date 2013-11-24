@@ -1,11 +1,11 @@
 <h1>BTC Tweets Index</h1>
 
 <p>
-  The average sentiment in the Twittersphere is currently: <%= @average_sentiment %>
+  The average sentiment in the Twittersphere is currently: <%= number_to_percentage(@average_sentiment) %>
 </p>
 
 <p>
-  The current bid price for BTC on Coinbase is: <%= @bid %>
+  The current bid price for BTC on Coinbase is: <%= @bid %><br>
   The current offer price for BTC on Coinbase is: <%= @offer %>
 </p>
 

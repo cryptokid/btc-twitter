@@ -32,10 +32,11 @@ class TwitterAPICaller
     if response.code == '200'
       JSON.parse(response.body)["statuses"].map do |t|
         {
-          :user      => t["user"]["screen_name"],
-          :body      => t["text"],
-          :sentiment => TweetSentiment.get_score(t["text"]),
-          :source    => t["source"]
+          :user       => t["user"]["screen_name"],
+          :body       => t["text"],
+          :sentiment  => TweetSentiment.get_score(t["text"]),
+          :source     => t["source"],
+          :tweeted_at => Time.parse(t["created_at"])
         }
       end
       # let's start with tweets and filter down from there

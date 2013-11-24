@@ -1,11 +1,13 @@
 module Priceable
+  require 'open-uri'
   
-  CoinbasePriceApi = "https://coinbase.com/api/v1/prices/"
+  CoinbasePriceApi = URI.parse("https://coinbase.com/api/v1/prices/")
 
-  def get_price(data = "spot_price")
+  def get_price(data = "spot_rate")
     url = "#{CoinbasePriceApi}#{data}"
-    open(url)
-    binding.pry
+    buffer = open(url).read
+    price_hash = JSON.parse(buffer)
+    price_hash["amount"]
   end
 
 end
