@@ -4,8 +4,7 @@ class Tweet < ActiveRecord::Base
   extend Priceable
 
   def self.average_sentiment
-    sentiments = Tweet.all.map &:sentiment
-    sentiments.inject{ |sum, elem| sum + elem }.to_f / sentiments.size
+    sentiments = Tweet.average('sentiment')
   end
 
 end
