@@ -7,12 +7,7 @@ class TweetsController < ApplicationController
     query_hash = { "q" => params[:search], "count" => 100 }
     response = TwitterAPICaller.call(query_hash)
     TwitterAPICaller.results(response).each do |t|
-      Tweet.create(
-        :user      => t[:user],
-        :body      => t[:body],
-        :sentiment => t[:sentiment], 
-        :source    => t[:source]
-      )
+      Tweet.create(t)
     end
     redirect_to tweets_path
   end

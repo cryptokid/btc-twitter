@@ -6,7 +6,7 @@ class TwitterAPICaller
         {
           :user      => t["user"]["screen_name"],
           :body      => t["text"],
-          :sentiment => TweetSentiment.get_sentiment(t["text"]),
+          :sentiment => TweetSentiment.get_score(t["text"]),
           :source    => t["source"]
         }
       end
