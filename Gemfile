@@ -2,8 +2,13 @@ source 'https://rubygems.org'
 
 # For accessing Twitter API more easily
 gem 'twitter'
-gem 'dotenv-rails', :groups => [:development, :test]
 gem 'oauth'
+
+# Protect your env variables - tokens, secrets, etc.
+gem 'dotenv-rails', :groups => [:development, :test]
+
+# Simple sentiment analysis on tweets
+gem 'sentimental'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.1'

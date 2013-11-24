@@ -3,6 +3,7 @@ class CreateTweets < ActiveRecord::Migration
     create_table :tweets do |t|
       t.string :user
       t.string :body
+      t.string :source
       t.timestamps
     end
   end

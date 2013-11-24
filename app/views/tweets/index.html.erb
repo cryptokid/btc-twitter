@@ -1,0 +1,15 @@
+<h1>BTC Tweets Index</h1>
+
+<table>
+  <tr>
+    <th>User</th>
+    <th>Body</th>
+  </tr>
+ 
+<% @tweets.each do |tweet| %>
+  <tr>
+    <td><%= tweet.user %></td>
+    <td><%= tweet.body %></td>
+  </tr>
+<% end %>
+</table>
