@@ -1,19 +1,5 @@
 class TwitterAPICaller
 
-  def self.results(response)
-    if response.code == '200'
-      JSON.parse(response.body)["statuses"].map do |t|
-        {
-          :user      => t["user"]["screen_name"],
-          :body      => t["text"],
-          :sentiment => TweetSentiment.get_score(t["text"]),
-          :source    => t["source"]
-        }
-      end
-      # let's start with tweets and filter down from there
-    end
-  end
-
   def self.call(type = 'search/tweets', query_hash)
     consumer_key = OAuth::Consumer.new(
         ENV["BTC_TWEETS_CONS_KEY"],
@@ -40,6 +26,20 @@ class TwitterAPICaller
     # Issue the request and return the response.
     http.start
     http.request request
+  end
+
+  def self.results(response)
+    if response.code == '200'
+      JSON.parse(response.body)["statuses"].map do |t|
+        {
+          :user      => t["user"]["screen_name"],
+          :body      => t["text"],
+          :sentiment => TweetSentiment.get_score(t["text"]),
+          :source    => t["source"]
+        }
+      end
+      # let's start with tweets and filter down from there
+    end
   end
 
 end
