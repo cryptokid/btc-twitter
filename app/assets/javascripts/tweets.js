@@ -1,6 +1,6 @@
 $(document).ready(function() {
 
-  $('#bitcoin_prices').click(function() {
+  // $('#bitcoin_prices').click(function() {
     // define function that gets price data in json format
     function getPrices() {
       $.ajax({
@@ -16,6 +16,6 @@ $(document).ready(function() {
       });
     }
     getPrices();
-  });
+  // });
 
 });
