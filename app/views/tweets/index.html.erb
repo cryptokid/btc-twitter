@@ -4,10 +4,9 @@
   The average sentiment in the Twittersphere is currently: <%= number_to_percentage(@average_sentiment) %>
 </p>
 
-<p>
-  The current bid price for BTC on Coinbase is: <%= @bid %><br>
-  The current offer price for BTC on Coinbase is: <%= @offer %>
-</p>
+<%= render :partial => 'bitcoin/prices' %>
+
+<div id="bitcoin_prices">click me!</div>
 
 <table>
   <tr>
