@@ -3,6 +3,16 @@ class TweetsController < ApplicationController
   def new
   end
 
+  def bitcoin
+    prices = {}
+    prices['sell'] = Tweet.get_price("sell")
+    prices['buy'] = Tweet.get_price("buy")
+    # update the data for that partial
+    # re-render the partial
+    puts prices
+    render :json => prices.to_json
+  end
+
   def create
     query_hash = { "q" => params[:search], "count" => 100 }
     response = TwitterAPICaller.call(query_hash)

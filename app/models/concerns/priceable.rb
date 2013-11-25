@@ -1,4 +1,5 @@
 module Priceable
+
   require 'open-uri'
   
   CoinbasePriceApi = URI.parse("https://coinbase.com/api/v1/prices/")
