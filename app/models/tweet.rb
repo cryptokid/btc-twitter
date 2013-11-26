@@ -4,7 +4,7 @@ class Tweet < ActiveRecord::Base
   extend Priceable
 
   def self.average_sentiment
-    sentiments = Tweet.average('sentiment')
+    Tweet.average('sentiment')
   end
 
 end

@@ -1,8 +1,9 @@
-<table>
+<table id="tweets">
   <tr>
     <th>User</th>
     <th>Body</th>
     <th>Sentiment</th>
+    <th>Tweeted At</th>
   </tr>
  
 <% @tweets.each do |tweet| %>
@@ -10,6 +11,7 @@
     <td><%= tweet.user %></td>
     <td><%= tweet.body %></td>
     <td><%= tweet.sentiment %></td>
+    <td><%= tweet.tweeted_at.strftime("%b %e, %l:%M %p") %></td>
   </tr>
 <% end %>
 </table>

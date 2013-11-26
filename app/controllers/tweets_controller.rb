@@ -1,10 +1,4 @@
 class TweetsController < ApplicationController
-  
-  def new
-  end
-
-  def tweets
-  end
 
   def bitcoin
     prices = {}
@@ -16,16 +10,22 @@ class TweetsController < ApplicationController
   end
 
   def create
-    query_hash = { "q" => params[:search], "count" => 100 }
+    # hard-code the search term for now...
+    query_hash = { "q" => "bitcoin", "count" => 100 }
     response = TwitterAPICaller.call(query_hash)
-    TwitterAPICaller.results(response).each do |t|
+    tweets = TwitterAPICaller.results(response).map do |t|
       Tweet.create(t)
     end
-    redirect_to tweets_path
+
+    respond_to do |format|
+      format.html { redirect_to tweets_path }
+      format.json { render :json => tweets }
+    end
+    
   end
 
   def index
-    @tweets = Tweet.all
+    @tweets = Tweet.all.order(:tweeted_at => :desc)
     @average_sentiment = Tweet.average_sentiment
     @bid, @offer, @spot = Tweet.get_price("sell"), Tweet.get_price("buy"), Tweet.get_price
   end
