@@ -1,0 +1,15 @@
+<table>
+  <tr>
+    <th>User</th>
+    <th>Body</th>
+    <th>Sentiment</th>
+  </tr>
+ 
+<% @tweets.each do |tweet| %>
+  <tr>
+    <td><%= tweet.user %></td>
+    <td><%= tweet.body %></td>
+    <td><%= tweet.sentiment %></td>
+  </tr>
+<% end %>
+</table>

@@ -1,25 +1,10 @@
-<h1>BTC Tweets Index</h1>
+<h1>Tweets & Prices</h1>
 
-<p>
+<div>
   The average sentiment in the Twittersphere is currently: <%= number_to_percentage(@average_sentiment) %>
-</p>
+</div>
 
 <%= render :partial => 'bitcoin/prices' %>
 
-<div id="bitcoin_prices">click me!</div>
+<%= render :partial => 'bitcoin/prices' %>
 
-<table>
-  <tr>
-    <th>User</th>
-    <th>Body</th>
-    <th>Sentiment</th>
-  </tr>
- 
-<% @tweets.each do |tweet| %>
-  <tr>
-    <td><%= tweet.user %></td>
-    <td><%= tweet.body %></td>
-    <td><%= tweet.sentiment %></td>
-  </tr>
-<% end %>
-</table>

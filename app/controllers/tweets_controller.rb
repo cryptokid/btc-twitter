@@ -3,13 +3,15 @@ class TweetsController < ApplicationController
   def new
   end
 
+  def tweets
+  end
+
   def bitcoin
     prices = {}
     prices['sell'] = Tweet.get_price("sell")
     prices['buy'] = Tweet.get_price("buy")
     # update the data for that partial
     # re-render the partial
-    puts prices
     render :json => prices.to_json
   end
 
