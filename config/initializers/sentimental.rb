@@ -2,10 +2,10 @@
 Sentimental.load_defaults
 
 # Set a global threshold
-Sentimental.threshold = 0.0
+# Sentimental.threshold = 0.0
 
 # Create an instance for usage:
-TweetSentiment = Sentimental.new
+TweetSentiment = Sentimental.new(0.0)
 
 # You can make new analyzers with individual thresholds:
 # analyzer = Sentimental.new(0.9)

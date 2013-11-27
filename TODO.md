@@ -14,3 +14,5 @@
 - display aggregate average sentiment of the 100 most-recent tweets (?)
 
 - real-time ajax powered price updates
+
+## link this app to coinbase trading api, to actually transact automatically

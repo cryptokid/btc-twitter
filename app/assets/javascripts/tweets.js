@@ -1,21 +1,21 @@
 $(document).ready(function() {
 
   // define function that gets price data in json format
-  $('#tweets').click(function() {
-    function getTweets() {
-      $.ajax({
-        type: "POST",
-        dataType: "json",
-        url: "/tweets",
-        complete: function(data) {
-          var tweets = JSON.parse(data.responseText);
-          // probably need to iterate thru each tweet and add to the table in that manner
-          $('#tweets').prepend(tweets);
-          setTimeout(getTweets, 1000);
+  function getTweets() {
+    $.ajax({
+      type: "GET",
+      dataType: "json",
+      url: "/tweets",
+      complete: function(data) {
+        var tweets = data.responseJSON;
+        // probably need to iterate thru each tweet and add to the table in that manner
+        for(i = 0; i < tweets.length; i++){
+          tweet = "<tr><td>" + tweets[i].user + "</td><td>" + tweets[i].body + "</td><td>" + tweets[i].sentiment + "</td><td>" + tweets[i].tweeted_at + "</td></tr>";
+          $("#tweets tr:first").after(tweet);
         }
-      });
-    }
-    getTweets();
-  });
-
+        setTimeout(getTweets, 10000);
+      }
+    });
+  }
+  getTweets();
 });

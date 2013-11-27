@@ -1,6 +1,6 @@
 <div>
   <p>
-    The current bid price for BTC on Coinbase is: <span id="sell_price"><%= @bid %></span><br>
-    The current offer price for BTC on Coinbase is: <span id="buy_price"><%= @offer %></span>
+    The current bid price for BTC on Coinbase is: <span id="sell_price"><%= number_to_currency(@bid, :unit => "$") %></span><br>
+    The current offer price for BTC on Coinbase is: <span id="buy_price"><%= number_to_currency(@offer, :unit => "$") %></span>
   </p>
 </div>

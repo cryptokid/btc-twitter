@@ -1,10 +1,9 @@
 BtcTwitter::Application.routes.draw do
   
-  resources :tweets
-  root to: "tweets#index"
+  root "tweets#index"
 
   get '/bitcoin' => 'tweets#bitcoin'
-  get '/tweets' => 'tweets#tweets'
+  get '/tweets' => 'tweets#twitter'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
