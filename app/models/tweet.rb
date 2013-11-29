@@ -4,7 +4,7 @@ class Tweet < ActiveRecord::Base
   extend Priceable
 
   def self.average_sentiment
-    Tweet.average('sentiment')
+    Tweet.order(:created_at => :desc).limit(100).average(:sentiment)
   end
 
 end

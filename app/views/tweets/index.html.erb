@@ -1,8 +1,6 @@
 <h1>BTC related tweets!</h1>
 
-<div>
-  The average sentiment in the Twittersphere is currently: <%= number_to_percentage(@average_sentiment) %>
-</div>
+<%= render :partial => 'tweets/sentiment' %>
 
 <%= render :partial => 'bitcoin/prices' %>
 

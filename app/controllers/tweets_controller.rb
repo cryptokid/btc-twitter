@@ -11,7 +11,7 @@ class TweetsController < ApplicationController
 
   def twitter
     # hard-code the search term for now...
-    query_hash = { "q" => "bitcoin", "count" => 1 }
+    query_hash = { "q" => "bitcoin", "count" => 100 }
     response = TwitterAPICaller.call(query_hash)
     tweets = TwitterAPICaller.results(response).map do |t|
       Tweet.create(t)
