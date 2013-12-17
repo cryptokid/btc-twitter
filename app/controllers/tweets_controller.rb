@@ -1,5 +1,7 @@
 class TweetsController < ApplicationController
 
+  # TODO: stop rendering the entire database of BTC tweets, it's slowing things down big time!
+  
   def bitcoin
     prices = {}
     prices['sell'] = Tweet.get_price("sell")
